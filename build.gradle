@@ -1,3 +1,7 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+//apply plugin: 'com.github.dcendents.android-maven'
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
@@ -22,3 +26,49 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+def group = 'com.runningcode.noadapter'
+def artifactId = "no-adapter-annotation-annotation"
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            pom.version = version
+            pom.artifactId = artifactId
+            pom.groupId = group
+        }
+    }
+}
+
+// afterEvaluate {
+//     publishing {
+//         publications {
+//             // Creates a Maven publication called "release".
+//             release(MavenPublication) {
+//                 // Applies the component for the release build variant.
+//                 from components.release
+
+//                 // You can then customize attributes of the publication as shown below.
+//                 groupId = 'com.runningcode.noadapter'
+//                 artifactId = "no-adapter-annotation-annotation"
+//                 version = '1.0.0'
+//             }
+            
+//         }
+//     }
+// }
