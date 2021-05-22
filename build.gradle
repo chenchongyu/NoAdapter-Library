@@ -7,6 +7,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.2.1"
@@ -20,41 +21,20 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
 
-def group = 'com.runningcode.noadapter'
-def artifactId = "no-adapter-annotation-annotation"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.auto.service:auto-service:1.0-rc6'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
+    implementation 'com.squareup:javapoet:1.10.0'
 
-            pom.version = version
-            pom.artifactId = artifactId
-            pom.groupId = group
-        }
-    }
+    implementation 'com.github.chenchongyu:NoAdapter-Annotation:v1.0.0.9'
 }
-
-// afterEvaluate {
-//     publishing {
-//         publications {
-//             // Creates a Maven publication called "release".
-//             release(MavenPublication) {
-//                 // Applies the component for the release build variant.
-//                 from components.release
-
-//                 // You can then customize attributes of the publication as shown below.
-//                 groupId = 'com.runningcode.noadapter'
-//                 artifactId = "no-adapter-annotation-annotation"
-//                 version = '1.0.0'
-//             }
-            
-//         }
-//     }
-// }
