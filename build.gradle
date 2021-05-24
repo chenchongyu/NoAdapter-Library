@@ -1,8 +1,6 @@
-apply plugin: 'java'
+apply plugin: 'com.android.library'
 apply plugin: 'maven'
-//apply plugin: 'com.github.dcendents.android-maven'
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
         google()
@@ -27,14 +25,46 @@ allprojects {
 
 
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+    }
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/java/assets']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
-    implementation 'com.squareup:javapoet:1.10.0'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.github.chenchongyu:NoAdapter-Annotation:v1.0.0.9'
 }
+
