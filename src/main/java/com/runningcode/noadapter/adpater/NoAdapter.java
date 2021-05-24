@@ -1,7 +1,7 @@
 /*
- * Copyright 2021 ccy.All Rights Reserved
+ * Copyright (C) 2021 Baidu, Inc. All Rights Reserved.
  */
-package com.runningcode.noadapter.adpater.adpater;
+package com.runningcode.noadapter.adpater;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

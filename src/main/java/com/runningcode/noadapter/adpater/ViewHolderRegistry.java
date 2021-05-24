@@ -1,7 +1,7 @@
 /*
- * Copyright 2021 ccy.All Rights Reserved
+ * Copyright (C) 2021 Baidu, Inc. All Rights Reserved.
  */
-package com.runningcode.noadapter.adpater.adpater;
+package com.runningcode.noadapter.adpater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,6 @@ public class ViewHolderRegistry {
     private static List<IVHRegistry> list = new ArrayList<>();
 
     static {
-//        add("com.baidu.adu.noadapter.compiler.ViewHolderRegistry$module");
-//        add("com.baidu.adu.noadapter.compiler.ViewHolderRegistry$app");
-//        add("com.baidu.adu.noadapter.compiler.ViewHolderRegistry$test");
     }
 
     public static void add(String className) {
