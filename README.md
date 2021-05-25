@@ -44,7 +44,7 @@ dependencies{
 -keepattributes *Annotation*
 ```
 
-###2.编写ViewHolder
+### 2.编写ViewHolder
 添加`@ViewHolder`注解，继承`BaseVH`类，泛型里指定当前ViewHolder需要的数据类型
 
 ```
@@ -63,7 +63,7 @@ public class UserHolder extends BaseVH<User> {
     }
 }
 ```
-###3.使用
+### 3.使用
 首先要在应用初始化的时候注册一下（建议在application里）
 
 ```
@@ -88,7 +88,7 @@ mRecyclerView.setAdapter(adapter);
 
 如上，一个列表页就开发完了，是不是很简单？
 
-##高阶用法
+## 高阶用法
 1.添加ItemClick事件
 
 ```
