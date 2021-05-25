@@ -39,9 +39,9 @@ dependencies{
 同时，添加如下混淆配置：
 
 ```
--keep public class com.runningcode.noadapter.adpater.*
-
--keep public class com.runningcode.noadapter.compiler.*
+-keep public class com.runningcode.noadapter.** { *; }
+-keep public class * extends com.runningcode.noadapter.adpater.BaseVH
+-keepattributes *Annotation*
 ```
 
 ###2.编写ViewHolder
