@@ -173,8 +173,9 @@ public class AudioMsgViewHolder extends BaseVH<ChatMsg> {
 
 只是在注解里标明对应的数据类型、字段名和字段值即可。
 
+APT相关代码：[NoAdapterCompiler](https://github.com/chenchongyu/NoAdapterCompiler)
+Plugin相关代码：[NoAdapterPlugin](https://github.com/chenchongyu/NoAdapterPlugin)
 完整demo工程请移步：[NoAdapter-Example](https://github.com/chenchongyu/NoAdapter-Example)
-
 
 
 ## 讨论
